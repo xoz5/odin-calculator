@@ -34,3 +34,15 @@ body {
     flex: 1;
     display: flex;
 }
+
+button {
+    width: 25%;
+}
+
+#clear {
+    flex: 1;
+}
+
+#zero {
+    flex: 1;
+}
