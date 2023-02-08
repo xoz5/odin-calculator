@@ -18,6 +18,11 @@ body {
     align-items: center;
 }
 
+.display {
+    height: 95px;
+    width: 100%;
+}
+
 .container {
     height: 550px;
     width: 450px;
