@@ -21,6 +21,7 @@ body {
 
 #display-para {
     overflow: hidden;
+    font-size: 50px;
 }
 
 .display {
