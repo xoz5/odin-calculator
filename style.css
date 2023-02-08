@@ -21,6 +21,7 @@ body {
 .display {
     height: 95px;
     width: 100%;
+    border-bottom: 1px solid;
 }
 
 .container {
@@ -28,6 +29,7 @@ body {
     width: 450px;
     display: flex;
     flex-direction: column;
+    border: 5px solid;
 }
 
 .row {
@@ -37,6 +39,7 @@ body {
 
 button {
     width: 25%;
+    border: 1px solid;
 }
 
 #clear {
