@@ -17,3 +17,8 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.container {
+    height: 550px;
+    width: 450px;
+}
