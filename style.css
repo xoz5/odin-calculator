@@ -21,4 +21,11 @@ body {
 .container {
     height: 550px;
     width: 450px;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    flex: 1;
+    display: flex;
 }
