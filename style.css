@@ -20,21 +20,22 @@ body {
 }
 
 #display-text {
-    overflow: hidden;
+    float: right;
     font-size: 50px;
-    white-space: nowrap;
-    direction: rtl;
 }
 
 .display {
     height: 95px;
-    width: 100%;
     border-bottom: 1px solid;
     background-color: #9d9d9d;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 10px;
+}
+
+.display-text-position {
+    width: 95%;
+    margin: auto;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .container {
