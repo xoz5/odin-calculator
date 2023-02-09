@@ -1,3 +1,11 @@
+const displayText = document.getElementById('display-text');
+const displayTextValues = document.querySelectorAll('.display-this');
+displayTextValues.forEach(value => value.addEventListener('click', displayValue));
+
+function displayValue(value) {
+    displayText.textContent += value.target.textContent;
+}
+
 function add(number1, number2) {
     return number1 + number2;
 }
