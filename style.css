@@ -19,7 +19,7 @@ body {
     align-items: center;
 }
 
-#display-para {
+#display-text {
     overflow: hidden;
     font-size: 50px;
     white-space: nowrap;
