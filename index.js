@@ -1,6 +1,13 @@
 const displayText = document.getElementById('display-text');
 const displayTextValues = document.querySelectorAll('.display-this');
+const backspace = document.getElementById('backspace');
+backspace.addEventListener('click', deleteText)
 displayTextValues.forEach(value => value.addEventListener('click', displayValue));
+
+
+function deleteText() {
+    displayText.textContent = displayText.textContent.slice(0, -1);
+}
 
 function displayValue(value) {
     displayText.textContent += value.target.textContent;
