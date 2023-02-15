@@ -7,6 +7,9 @@ displayTextButtons.forEach(value => value.addEventListener('click', displayValue
 
 function deleteText() {
     displayText.textContent = displayText.textContent.slice(0, -1);
+    if (displayText.textContent === '') {
+        displayText.textContent = 0;
+    }
 }
 
 function displayValue(value) {
