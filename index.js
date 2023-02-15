@@ -1,8 +1,8 @@
 const displayText = document.getElementById('display-text');
-const displayTextValues = document.querySelectorAll('.display-this');
-const backspace = document.getElementById('backspace');
-backspace.addEventListener('click', deleteText)
-displayTextValues.forEach(value => value.addEventListener('click', displayValue));
+const displayTextButtons = document.querySelectorAll('.display-this');
+const backspaceButton = document.getElementById('backspace');
+backspaceButton.addEventListener('click', deleteText)
+displayTextButtons.forEach(value => value.addEventListener('click', displayValue));
 
 
 function deleteText() {
