@@ -16,6 +16,7 @@ function displayValue(event) {
   const firstCharOfLastNumber = lastNumber[0];
   const secondCharOfLastNumber = lastNumber[1];
 
+  const isSymbol = /[-+÷x]/;
   const isDigit = /\d/;
 
   if (input.match(isDigit)) {
@@ -24,6 +25,8 @@ function displayValue(event) {
     } else {
       return displayText.textContent += input;
     }
+  } else if (lastNumber === "" && input.match(isSymbol)) {
+    return displayText.textContent = `${displayText.textContent.slice(0, -1)}${input}`;
   } else {
     return displayText.textContent += input;
   }
