@@ -6,10 +6,7 @@ backspaceButton.addEventListener('click', deleteText);
 displayTextButtons.forEach(button => button.addEventListener('click', displayValue));
 
 function deleteText() {
-    displayText.textContent = displayText.textContent.slice(0, -1);
-    if (displayText.textContent === '') {
-        displayText.textContent = 0;
-    }
+  displayText.textContent = displayText.textContent.slice(0, -1) || '0';
 }
 
 function displayValue(value) {
