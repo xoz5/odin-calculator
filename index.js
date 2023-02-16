@@ -9,8 +9,24 @@ function deleteText() {
   displayText.textContent = displayText.textContent.slice(0, -1) || '0';
 }
 
-function displayValue(value) {
-    displayText.textContent += value.target.textContent;
+function displayValue(event) {
+  const input = event.target.textContent;
+  const numbers = displayText.textContent.split(/[÷x\-+]/);
+  const lastNumber = numbers[numbers.length - 1];
+  const firstCharOfLastNumber = lastNumber[0];
+  const secondCharOfLastNumber = lastNumber[1];
+
+  const isDigit = /\d/;
+
+  if (input.match(isDigit)) {
+    if (firstCharOfLastNumber === '0' && secondCharOfLastNumber !== '.') {
+      return displayText.textContent = `${numbers.slice(0, -1)}${input}`;
+    } else {
+      return displayText.textContent += input;
+    }
+  } else {
+    return displayText.textContent += input;
+  }
 }
 
 const operators = {
