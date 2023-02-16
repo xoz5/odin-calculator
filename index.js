@@ -27,6 +27,8 @@ function displayValue(event) {
     }
   } else if (lastNumber === "" && input.match(isSymbol)) {
     return displayText.textContent = `${displayText.textContent.slice(0, -1)}${input}`;
+  } else if (lastNumber.includes('.') && input === '.') {
+    return;
   } else {
     return displayText.textContent += input;
   }
