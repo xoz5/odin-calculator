@@ -1,11 +1,23 @@
+// Declare variables
 const displayText = document.getElementById('display-text');
 let displayTextContent = displayText.textContent;
 const displayTextButtons = document.querySelectorAll('.display-this');
 const backspaceButton = document.getElementById('backspace');
 
+// Initialize objects
+const operators = {
+  '-': subtract,
+  '*': multiply,
+  '/': divide,
+  '+': add,
+};
+
+// Add event listeners
 backspaceButton.addEventListener('click', deleteText);
 displayTextButtons.forEach(button => button.addEventListener('click', displayValue));
 
+
+// Functions
 function deleteText() {
   displayTextContent = displayTextContent.slice(0, -1) || '0';
   updateDisplayText();
@@ -37,12 +49,6 @@ function displayValue(event) {
   updateDisplayText();
 }
 
-const operators = {
-  '-': subtract,
-  '*': multiply,
-  '/': divide,
-  '+': add,
-};
 function updateDisplayText() {
   displayText.textContent = displayTextContent;
 }
