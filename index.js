@@ -3,6 +3,7 @@ const displayText = document.getElementById('display-text');
 let displayTextContent = displayText.textContent;
 const displayTextButtons = document.querySelectorAll('.display-this');
 const backspaceButton = document.getElementById('backspace');
+const clearButton = document.getElementById('clear');
 
 // Initialize objects
 const operators = {
@@ -15,11 +16,17 @@ const operators = {
 // Add event listeners
 backspaceButton.addEventListener('click', deleteText);
 displayTextButtons.forEach(button => button.addEventListener('click', displayValue));
+clearButton.addEventListener('click', clearText);
 
 
 // Functions
 function deleteText() {
   displayTextContent = displayTextContent.slice(0, -1) || '0';
+  updateDisplayText();
+}
+
+function clearText() {
+  displayTextContent = '0';
   updateDisplayText();
 }
 
