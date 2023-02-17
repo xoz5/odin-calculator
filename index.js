@@ -1,4 +1,5 @@
 const displayText = document.getElementById('display-text');
+let displayTextContent = displayText.textContent;
 const displayTextButtons = document.querySelectorAll('.display-this');
 const backspaceButton = document.getElementById('backspace');
 
@@ -6,12 +7,13 @@ backspaceButton.addEventListener('click', deleteText);
 displayTextButtons.forEach(button => button.addEventListener('click', displayValue));
 
 function deleteText() {
-  displayText.textContent = displayText.textContent.slice(0, -1) || '0';
+  displayTextContent = displayTextContent.slice(0, -1) || '0';
+  updateDisplayText();
 }
 
 function displayValue(event) {
   const input = event.target.textContent;
-  const numbers = displayText.textContent.split(/[÷x\-+]/);
+  const numbers = displayTextContent.split(/[÷x\-+]/);
   const lastNumber = numbers[numbers.length - 1];
   const firstCharOfLastNumber = lastNumber[0];
   const secondCharOfLastNumber = lastNumber[1];
@@ -21,17 +23,18 @@ function displayValue(event) {
 
   if (input.match(isDigit)) {
     if (firstCharOfLastNumber === '0' && secondCharOfLastNumber !== '.') {
-      return displayText.textContent = `${numbers.slice(0, -1)}${input}`;
+      displayTextContent = `${displayTextContent.slice(0, -1)}${input}`;
     } else {
-      return displayText.textContent += input;
+      displayTextContent += input;
     }
   } else if (lastNumber === "" && input.match(isSymbol)) {
-    return displayText.textContent = `${displayText.textContent.slice(0, -1)}${input}`;
+    displayTextContent = `${displayTextContent.slice(0, -1)}${input}`;
   } else if (lastNumber.includes('.') && input === '.') {
     return;
   } else {
-    return displayText.textContent += input;
+    displayTextContent += input;
   }
+  updateDisplayText();
 }
 
 const operators = {
@@ -40,6 +43,9 @@ const operators = {
   '/': divide,
   '+': add,
 };
+function updateDisplayText() {
+  displayText.textContent = displayTextContent;
+}
 
 function add(number1, number2) {
   return number1 + number2;
