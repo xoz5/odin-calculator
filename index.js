@@ -1,9 +1,9 @@
 // Declare variables
 const displayText = document.getElementById('display-text');
-let displayTextContent = displayText.textContent;
 const displayTextButtons = document.querySelectorAll('.display-this');
 const backspaceButton = document.getElementById('backspace');
 const clearButton = document.getElementById('clear');
+let displayTextContent = displayText.textContent;
 
 // Initialize objects
 const operators = {
