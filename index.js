@@ -46,14 +46,14 @@ function displayValue(event) {
     if (firstCharOfLastNumber === '0' && secondCharOfLastNumber !== '.') {
       displayTextContent = `${displayTextContent.slice(0, -1)}${input}`;
     } else {
-      displayTextContent += input;
+        displayTextContent += input;
     }
-  } else if (lastNumber === "" && input.match(isSymbol)) {
-    displayTextContent = `${displayTextContent.slice(0, -1)}${input}`;
+  } else if (lastNumber === '' && input.match(isSymbol)) {
+      displayTextContent = `${displayTextContent.slice(0, -1)}${input}`;
   } else if (lastNumber.includes('.') && input === '.') {
-    return;
+      return;
   } else {
-    displayTextContent += input;
+      displayTextContent += input;
   }
   updateDisplayText();
 }
