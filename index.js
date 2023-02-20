@@ -48,6 +48,8 @@ function displayValue(event) {
     } else {
         displayTextContent += input;
     }
+  } else if (displayTextContent === '0' && input === '-') {
+      displayTextContent = `${displayTextContent.slice(0, -1)}${input}`;
   } else if (lastNumber === '' && input.match(isSymbol)) {
       displayTextContent = `${displayTextContent.slice(0, -1)}${input}`;
   } else if (lastNumber.includes('.') && input === '.') {
