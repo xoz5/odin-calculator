@@ -9,8 +9,8 @@ let displayTextContent = displayText.textContent;
 // Initialize objects
 const operators = {
   '-': subtract,
-  '*': multiply,
-  '/': divide,
+  'x': multiply,
+  '÷': divide,
   '+': add,
 };
 
