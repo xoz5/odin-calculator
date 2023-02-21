@@ -5,6 +5,7 @@ const backspaceButton = document.getElementById('backspace');
 const clearButton = document.getElementById('clear');
 const equalsButton = document.getElementById('equals');
 let displayTextContent = displayText.textContent;
+let answerOnDisplay = false;
 
 // Initialize objects
 const operators = {
@@ -29,18 +30,21 @@ function deleteText() {
 
 function clearText() {
   displayTextContent = '0';
+  answerOnDisplay = false;
   updateDisplayText();
 }
 
 function displayValue(event) {
   const input = event.target.textContent;
+  const isSymbol = /[-+÷x]/;
+  const isDigit = /\d/;
+
+  yesOrNoClearText(input, isSymbol);
+
   const numbers = displayTextContent.split(/[÷x\-+]/);
   const lastNumber = numbers[numbers.length - 1];
   const firstCharOfLastNumber = lastNumber[0];
   const secondCharOfLastNumber = lastNumber[1];
-
-  const isSymbol = /[-+÷x]/;
-  const isDigit = /\d/;
 
   if (input.match(isDigit)) {
     if (firstCharOfLastNumber === '0' && secondCharOfLastNumber !== '.') {
@@ -60,6 +64,17 @@ function displayValue(event) {
       displayTextContent += input;
   }
   updateDisplayText();
+}
+
+function yesOrNoClearText(input, isSymbol) {
+  const isWordNotAndNotOperators = /^[a-wyzA-WYZ]+$/;
+
+  if (displayTextContent.match(isWordNotAndNotOperators) ||
+      answerOnDisplay && !(input.match(isSymbol))) {
+        clearText();
+  }
+
+  answerOnDisplay = false;
 }
 
 function updateDisplayText() {
@@ -115,4 +130,5 @@ function operate() {
 
   displayTextContent = numbers.toString();
   updateDisplayText();
+  answerOnDisplay = true;
 }
