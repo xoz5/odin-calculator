@@ -85,6 +85,10 @@ function divide(number1, number2) {
 function operate() {
   const numbers = displayTextContent.split(/[÷x\-+]/);
   const symbols = displayTextContent.match(/[÷x\-+]/g);
+  if (displayTextContent.includes('e')) {
+    numbers[0] = `${numbers[0]}+${numbers.splice(1, 1)}`
+    symbols.shift();
+  }
   let mathSymbol;
   let symbolIndex;
   let mathAnswer;
