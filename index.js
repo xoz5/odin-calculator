@@ -82,6 +82,33 @@ function divide(number1, number2) {
   return (number2 == 0 ? 'Undefined' : number1 / number2);
 }
 
-function operate(operator, number1, number2) {
-  return operators[operator](number1, number2);
+function operate() {
+  const numbers = displayTextContent.split(/[÷x\-+]/);
+  const symbols = displayTextContent.match(/[÷x\-+]/g);
+  let mathSymbol;
+  let symbolIndex;
+  let mathAnswer;
+  let number1;
+  let number2;
+
+  while (mathSymbol = symbols.find(char => char.match(/[÷x]/))) {
+    symbolIndex = symbols.indexOf(mathSymbol);
+    number1 = numbers.splice(symbolIndex, 1);
+    number2 = numbers.splice(symbolIndex, 1);
+    mathAnswer = operators[mathSymbol](number1, number2);
+    numbers.splice(symbolIndex, 0, mathAnswer);
+    symbols.splice(symbolIndex, 1);
+  }
+
+  while (mathSymbol = symbols.find(char => char.match(/[+-]/))) {
+    symbolIndex = symbols.indexOf(mathSymbol);
+    number1 = numbers.splice(symbolIndex, 1);
+    number2 = numbers.splice(symbolIndex, 1);
+    mathAnswer = operators[mathSymbol](number1, number2);
+    numbers.splice(symbolIndex, 0, mathAnswer);
+    symbols.splice(symbolIndex, 1);
+  }
+
+  displayTextContent = numbers.toString();
+  updateDisplayText();
 }
