@@ -52,6 +52,8 @@ function displayValue(event) {
       displayTextContent = `${displayTextContent.slice(0, -1)}${input}`;
   } else if (lastNumber === '' && input.match(isSymbol)) {
       displayTextContent = `${displayTextContent.slice(0, -1)}${input}`;
+  } else if (lastNumber === '' && input === '.') {
+      displayTextContent = `${displayTextContent}0${input}`;
   } else if (lastNumber.includes('.') && input === '.') {
       return;
   } else {
