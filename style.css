@@ -56,6 +56,15 @@ button {
     border: 1px solid;
 }
 
+button:hover {
+    filter: brightness(90%);
+}
+
+button:active {
+    border: 1px solid;
+    filter: brightness(80%);
+}
+
 #clear {
     flex: 1;
 }
