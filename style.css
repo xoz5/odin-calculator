@@ -45,6 +45,7 @@ body {
     width: 450px;
     display: flex;
     flex-direction: column;
+    border-radius: 20px;
     padding: 15px;
 }
 
@@ -56,6 +57,7 @@ body {
 button {
     width: 25%;
     border: 3px solid #010172;
+    border-radius: 20px;
 }
 
 button:hover {
