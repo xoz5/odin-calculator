@@ -22,6 +22,7 @@ backspaceButton.addEventListener('click', deleteText);
 displayTextButtons.forEach(button => button.addEventListener('click', displayValue));
 clearButton.addEventListener('click', clearText);
 equalsButton.addEventListener('click', operate);
+document.addEventListener('keydown', displayKeyboardValue);
 
 
 // Functions
@@ -33,6 +34,83 @@ function deleteText() {
       displayTextContent = displayTextContent.slice(0, -1) || '0';
   }
   updateDisplayText();
+}
+
+function displayKeyboardValue(event) {
+  // Declare button variables
+  const backspace = document.getElementById('backspace');
+  const divide = document.getElementById('divide');
+  const multiply = document.getElementById('multiply');
+  const plus = document.getElementById('plus');
+  const subtract = document.getElementById('subtract');
+  const equals = document.getElementById('equals');
+  const dot = document.getElementById('dot');
+  const zero = document.getElementById('zero');
+  const one = document.getElementById('one');
+  const two = document.getElementById('two');
+  const three = document.getElementById('three');
+  const four = document.getElementById('four');
+  const five = document.getElementById('five');
+  const six = document.getElementById('six');
+  const seven = document.getElementById('seven');
+  const eight = document.getElementById('eight');
+  const nine = document.getElementById('nine');
+
+  switch(event.key) {
+    case '0':
+      zero.click();
+      break;
+    case '1':
+      one.click();
+      break;
+    case '2':
+      two.click();
+      break;
+    case '3':
+      three.click();
+      break;
+    case '4':
+      four.click();
+      break;
+    case '5':
+      five.click();
+      break;
+    case '6':
+      six.click();
+      break;
+    case '7':
+      seven.click();
+      break;
+    case '8':
+      eight.click();
+      break;
+    case '9':
+      nine.click();
+      break;
+    case 'x':
+    case 'X':
+      multiply.click();
+      break;
+    case '/':
+      divide.click();
+      break;
+    case '+':
+      plus.click();
+      break;
+    case '-':
+      subtract.click();
+      break;
+    case 'Backspace':
+      backspace.click();
+      break;
+    case '.':
+      dot.click();
+      break;
+    case '=':
+    case 'Enter':
+      equals.click();
+      break;
+  }
 }
 
 function updateDisplayTextLength() {
