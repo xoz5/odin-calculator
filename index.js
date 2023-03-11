@@ -6,6 +6,7 @@ const clearButton = document.getElementById('clear');
 const equalsButton = document.getElementById('equals');
 let displayTextContent = displayText.textContent;
 let answerOnDisplay = false;
+let answerOnDisplayLength = 0;
 
 // Initialize objects
 const operators = {
@@ -24,8 +25,17 @@ equalsButton.addEventListener('click', operate);
 
 // Functions
 function deleteText() {
-  displayTextContent = displayTextContent.slice(0, -1) || '0';
+  if (answerOnDisplayLength === displayTextContent.length) {
+    updateDisplayTextLength();
+    clearText();
+  } else {
+      displayTextContent = displayTextContent.slice(0, -1) || '0';
+  }
   updateDisplayText();
+}
+
+function updateDisplayTextLength() {
+  answerOnDisplayLength = 0;
 }
 
 function clearText() {
@@ -131,4 +141,5 @@ function operate() {
   displayTextContent = numbers.toString();
   updateDisplayText();
   answerOnDisplay = true;
+  answerOnDisplayLength = displayTextContent.length;
 }
