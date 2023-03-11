@@ -31,6 +31,7 @@ body {
     display: flex;
     border-radius: 20px;
     margin-bottom: 10px;
+    position: relative;
 }
 
 .display-text-position {
@@ -86,4 +87,11 @@ button:active {
 #plus,
 #equals {
     background: #ffd281;
+}
+
+.display-text-answer-position {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+}
 }
