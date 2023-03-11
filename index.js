@@ -1,5 +1,6 @@
 // Declare variables
 const displayText = document.getElementById('display-text');
+const displayTextAnswer = document.getElementById('display-text-answer');
 const displayTextButtons = document.querySelectorAll('.display-this');
 const backspaceButton = document.getElementById('backspace');
 const clearButton = document.getElementById('clear');
@@ -42,6 +43,7 @@ function clearText() {
   displayTextContent = '0';
   answerOnDisplay = false;
   updateDisplayText();
+  updateDisplayTextAnswer();
 }
 
 function displayValue(event) {
@@ -89,6 +91,10 @@ function yesOrNoClearText(input, isSymbol) {
 
 function updateDisplayText() {
   displayText.textContent = displayTextContent;
+}
+
+function updateDisplayTextAnswer() {
+  displayTextAnswer.textContent = `Ans = ${displayTextContent}`
 }
 
 function add(number1, number2) {
@@ -141,5 +147,6 @@ function operate() {
   displayTextContent = numbers.toString();
   updateDisplayText();
   answerOnDisplay = true;
+  updateDisplayTextAnswer();
   answerOnDisplayLength = displayTextContent.length;
 }
