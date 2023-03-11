@@ -46,6 +46,7 @@ body {
     display: flex;
     flex-direction: column;
     border-radius: 20px;
+    background-color: #010172;
     padding: 15px;
 }
 
@@ -71,8 +72,18 @@ button:active {
 
 #clear {
     flex: 1;
+    background: #ff9e9e;
 }
 
 #zero {
     flex: 1;
+}
+
+#backspace,
+#divide,
+#multiply,
+#subtract,
+#plus,
+#equals {
+    background: #ffd281;
 }
